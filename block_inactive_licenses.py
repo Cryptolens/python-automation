@@ -19,14 +19,12 @@ def identify_inactive_keys(token, productId, window=30, block=False):
     
     all_keys = []
     
-    time_window = 60*60*24*window # 1 month back in time
+    time_window = 60*60*24*int(window) # 1 month back in time
     time_now = int(time.time())
     
     filtered_keys = []
     
     not_processed_keys = []
-    
-    ## only non blocked keys should be listed.
     
     iteration = 1
     while True:
@@ -49,15 +47,15 @@ def identify_inactive_keys(token, productId, window=30, block=False):
         
         if len(req) > 0:
             req = req[0]
+
+            if int(req["time"]) + time_window < time_now:
+                filtered_keys.append(req["key"])
+                print("Detected key {0}".format(req["key"]))
+            else:
+                print("Skipped key {0}".format(req["key"]))
         else:
-            print("Skipped key {0}".format(key["key"]))
-            continue
-        
-        if req["time"] + time_window > time_now:
-            filtered_keys.append(req["key"])
-            print("Detected key {0}".format(req["key"]))
-        else:
-            print("Skipped key {0}".format(req["key"]))
+            filtered_keys.append(key["key"])
+            print("Detected key {0}".format(key["key"]))
             
     if block:
         
@@ -84,7 +82,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     print(identify_inactive_keys(args.token, args.product,args.window, args.block))
-        
-
-    
-    
