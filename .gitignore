@@ -127,3 +127,14 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+testenv/bin/activate
+testenv/bin/activate.csh
+testenv/bin/activate.fish
+testenv/bin/Activate.ps1
+testenv/bin/pip
+testenv/bin/pip3
+testenv/bin/pip3.12
+testenv/bin/python
+testenv/bin/python3
+testenv/bin/python3.12
+testenv/pyvenv.cfg
