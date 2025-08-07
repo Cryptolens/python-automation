@@ -66,7 +66,7 @@ if __name__ == "__main__":
     parser.add_argument('-t', '--token', help="The access token with GetWebAPILog, GetKeys and BlockKey permissions.", required=True)
     parser.add_argument('-p','--product', help="The ProductId  of the product", required=True)
     parser.add_argument('-b','--block', help="If set to true, all inactive keys will be blocked.",action="store_true")
-    parser.add_argument("-w", '--window', help="How many days should have pasted after the expiry date to mark it as inactive and eventually block it. Default 30 days.", default=0)
+    parser.add_argument("-w", '--window', help="How many days should have pasted after the expiry date to mark it as inactive and eventually block it. Default 0 days.", default=0)
     parser.add_argument("-s", '--search', help="An optional query you can attach to filter the licenses.", default="Block=False")
 
     
