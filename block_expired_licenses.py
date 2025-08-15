@@ -63,7 +63,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='This script will help you to identify which licenses have expired and, if desired, block them.' \
     ' If needed, you can choose to filter licenses that have been expired for more than a certain number of days.')
     
-    parser.add_argument('-t', '--token', help="The access token with GetWebAPILog, GetKeys and BlockKey permissions.", required=True)
+    parser.add_argument('-t', '--token', help="The access token with GetKeys and BlockKey permissions.", required=True)
     parser.add_argument('-p','--product', help="The ProductId  of the product", required=True)
     parser.add_argument('-b','--block', help="If set to true, all inactive keys will be blocked.",action="store_true")
     parser.add_argument("-w", '--window', help="How many days should have pasted after the expiry date to mark it as inactive and eventually block it. Default 0 days.", default=0)
